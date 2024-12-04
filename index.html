@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+    
+    <head>
+        
+        <title>3D Printer Dashboard</title>
+       
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Lev's 3D Printer</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="https://levrubinshteyn.github.io/Final">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/LevRubinshteyn">Github Profile</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      More
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="https://github.com/LevRubinshteyn/Final">Repo Link</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+
+        <style>
+             body {background-color: rgb(255, 255, 255);}
+             h1   {color: rgb(60, 0, 255);}
+         
+            .container { margin-top: 50px; }
+            .printer-status { margin-bottom: 20px; }
+            .axis-controls { margin-bottom: 15px; }
+            .custom-buttons { margin-top: 20px; }
+        </style>
+   
+    </head>
+
+    
+    <body>
+        
+        <div class="container">
+<center>
+                    <h1>3D Printer Dashboard</h1>
+                </center>
+                </div>
+            </div>
+            
+            <div class="container">
+                <div class="row">
+                    <div class="col text-center">
+                        <div id="status" class="printer-status">
+                            <h3>Printer Status</h3>
+                            <p><strong>Status:</strong> <span id="printerStatus">Loading...</span></p>
+                            <p><strong>Ready:</strong> <span id="printerReady">Loading...</span></p>
+                            <p><strong>Operational:</strong> <span id="printerOperational">Loading...</span></p>
+                            <p><strong>Printing:</strong> <span id="printerPrinting">Loading...</span></p>
+                        </div>
+                    </div>
+            
+                    <div class="col text-center">
+                        <div id="temperature" class="printer-status">
+                            <h3>Temperatures</h3>
+                            <p><strong>Bed Temperature:</strong> <span id="bedTemp">Loading...</span> °C</p>
+                            <p><strong>Extruder Temperature:</strong> <span id="extruderTemp">Loading...</span> °C</p>
+                        </div>
+                    </div>
+            
+                    <div class="col text-center">
+                        <h3>Move 3D Printer</h3>
+                        <div class="movement-controls">
+
+                            <div class="axis-controls">
+                                <h5>Move X Axis</h5>
+                                <label for="xMove">Distance:</label>
+                                <input type="number" id="xMove" value="10" />
+                                <button onclick="move('x', getDistance('xMove'))">X +</button>
+                                <button onclick="move('x', -getDistance('xMove'))">X -</button>
+                            </div>
+    
+                            <div class="axis-controls">
+                                <h5>Move Y Axis</h5>
+                                <label for="yMove">Distance:</label>
+                                <input type="number" id="yMove" value="10" />
+                                <button onclick="move('y', getDistance('yMove'))">Y +</button>
+                                <button onclick="move('y', -getDistance('yMove'))">Y -</button>
+                            </div>
+    
+                            <div class="axis-controls">
+                                <h5>Move Z Axis</h5>
+                                <label for="zMove">Distance:</label>
+                                <input type="number" id="zMove" value="10" />
+                                <button onclick="move('z', getDistance('zMove'))">Z +</button>
+                                <button onclick="move('z', -getDistance('zMove'))">Z -</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col text-center">
+                        <h3>Additional Controls</h3>
+                        <button onclick="sendCommand('M410')">Stop Motion (M410)</button>
+                        <button onclick="sendCommand('G28')">Home All Axes (G28)</button>
+                        <button onclick="openCamera()">Open Camera Feed</button>
+                    </div>
+                </div>
+            </div>
+    
+
+        
+       
+        <script src="script.js"></script>
+    
+    </body>
+
+</html>
