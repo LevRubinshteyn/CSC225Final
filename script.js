@@ -1,5 +1,5 @@
 
-
+///i wish i had more time to make the html side prettier, debugging has been like pulling teeth
 // function to fetch distance from input field
 function getDistance(inputId) {
     const input = document.getElementById(inputId);
